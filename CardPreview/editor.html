@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8"/>
+    <title>Kartvizit Studio - Editör</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/editor.css"/>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Kartvizit Studio</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="btn">Ana Sayfa</a></li>
+                    <li><a href="#" class="btn primary-btn">Editör</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="editor-main">
+        <section class="editor-panel">
+            <h2>Ayarlar</h2>
+
+            <div class="panel-group">
+                <h3>Ön Yüz</h3>
+                <label>
+                    İsim Soyisim
+                    <input type="text" id="inp-name" placeholder="Adınız Soyadınız" />
+                </label>
+
+                <label>
+                    Unvan
+                    <input type="text" id="inp-title" placeholder="Unvanınız" />
+                </label>
+
+                <label>
+                    Telefon
+                    <input type="text" id="inp-phone" placeholder="0 5XX XXX XX XX" />
+                </label>
+
+                <label>
+                    E-Posta
+                    <input type="email" id="inp-email" placeholder="adiniz@sirketiniz.com" />
+                </label>
+
+                <label>
+                    Şirket Adı
+                    <input type="text" id="inp-company" placeholder="Şirket Adı" />
+                </label>
+            </div>
+
+            <div class="panel-group">
+                <h3>Arka Yüz</h3>
+                <label>
+                    Slogan
+                    <input type="text" id="inp-slogan" placeholder="Sloganınız buraya gelecek"/>
+                </label>
+
+                <label>
+                    Web Sitesi
+                    <input type="text" id="inp-website" placeholder="www.sirketiniz.com"/>
+                </label>
+
+                <label>
+                    Adres
+                    <textarea id="inp-address" rows="2" placeholder="Adresiniz, Şehir, Ülke"></textarea>
+                </label>
+            </div>
+
+            <div class="panel-group">
+                <h3>Renkler</h3>
+                
+                <label>
+                    Ön Yüz Renk
+                    <input type="color" id="inp-front-color" value="#007bff"/>
+                </label>
+
+                <label>
+                    Arka Yüz Renk
+                    <input type="color" id="inp-back-color" value="#111827" />
+                </label>
+            </div>
+        </section>
+
+        <section class="editor-preview">
+            <h2>Canlı Önizleme</h2>
+
+            <div class="card-wrapper">
+                <div class="card-3d" id="editor-card">
+                    <div class="card-face card-front">
+                        <div class="card-content">
+                            <p class="card-name" id="prev-name">Adınız Soyadınız</p>
+                            <p class="card-title" id="prev-title">Unvanınız</p>
+                            <p class="card-contact" id="prev-phone">Telefon:05XX XXX XX XX</p>
+                            <p class="card-contact" id="prev-email">E-Posta: adiniz@sirketiniz.com</p>
+                            <p class="card-company" id="prev-company">Şirket Adı</p>
+                        </div>
+                    </div>
+
+                    <div class="card-face card-back">
+                        <div class="card-content">
+                            <p class="card-slogan" id="prev-slogan">Sloganınız buraya gelecek</p>
+                            <p class="card-website" id="prev-website">www.sirketiniz.com</p>
+                            <p class="card-address" id="prev-address">Adresiniz, Şehir, Ülke</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn flip-btn" id="btn-flip">Ön/Arka Çevir</button>
+        </section>
+    </main>
+
+    <script src="js/editor.js"></script>
+</body>
+</html>
