@@ -2,10 +2,13 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Kartvizit Studio: tarayıcıda kartvizit tasarla, vCard QR kodu ekle, PNG olarak indir." />
     <title>Kartvizit Studio</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+    <a class="skip-link" href="#icerik">İçeriğe geç</a>
     <header class="main-header">
         <div class="container">
             <div class="logo">
@@ -19,36 +22,37 @@
         </div>
     </header>
 
-    <main>
-        <section class="preview-section">
-            <div class="preview-container">
-                <h2>Kartvizit Önizleme</h2>
-
-                <div class="card-wrapper">
-                    <div class="card-3d" id="businessCard">
-                        <!--Ön Yüz-->
-                        <div class="card-face card-front">
-                            <div class="card-content">
-                                <p class="card-name">Adınız Soyadınız</p>
-                                <p class="card-title">Unvanınız</p>
-                                <p class="card-contact">Telefon: 05XX XXX XX XX</p>
-                                <p class="card-contact">E-Posta: adiniz@sirketiniz.com</p>
-                                <p class="card-company">Şirket Adı</p>
-                            </div>
+    <main id="icerik">
+        <section class="hero">
+            <h2>Kartvizitini dakikalar içinde tasarla</h2>
+            <p>Bilgilerini gir, hazır temalardan birini seç, vCard QR kodlu kartını PNG olarak indir.</p>
+            <a href="editor.html" class="btn primary-btn">Tasarlamaya başla</a>
+        </section>
+        <section aria-label="Kartvizit önizleme">
+            <div class="card-wrapper">
+                <div class="card-3d" id="businessCard" tabindex="0" role="button" aria-label="Kartı çevir">
+                    <div class="card-face card-front">
+                        <div class="card-content">
+                            <p class="card-name">Ayşe Yılmaz</p>
+                            <p class="card-title">Ürün Tasarımcısı</p>
+                            <p class="card-contact">Telefon: 0532 000 00 00</p>
+                            <p class="card-contact">E-Posta: ayse@ornek.com</p>
+                            <p class="card-company">Örnek Stüdyo</p>
                         </div>
-
-
-                        <!--Arka Yüz-->
-                        <div class="card-face card-back">
-                            <div class="card-content">
-                                <p class="card-slogan">Sloganınız buraya gelecek</p>
-                                <p class="card-website">www.sirketiniz.com</p>
-                                <p class="card-address">Adresiniz, Şehir, Ülke</p>
-                            </div>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="card-content">
+                            <p class="card-slogan">Fikirden ürüne</p>
+                            <p class="card-website">www.ornek.com</p>
+                            <p class="card-address">İstanbul, Türkiye</p>
                         </div>
                     </div>
                 </div>
             </div>
+            <p class="hint">Kartı çevirmek için tıkla.</p>
+            <ul class="features">
+                <li>Canlı önizleme</li><li>Hazır temalar</li><li>vCard QR kodu</li><li>PNG indirme</li><li>Mobil uyumlu</li>
+            </ul>
         </section>
     </main>
 

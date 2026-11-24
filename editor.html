@@ -2,119 +2,140 @@
 <html lang="tr">
 <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Kartvizit Studio editörü: bilgilerini gir, tema seç, QR kodlu kartvizitini PNG olarak indir." />
     <title>Kartvizit Studio - Editör</title>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/editor.css"/>
 </head>
 <body>
+    <a class="skip-link" href="#icerik">İçeriğe geç</a>
     <header class="main-header">
         <div class="container">
-            <div class="logo">
-                <h1>Kartvizit Studio</h1>
-            </div>
-            <nav class="main-nav">
+            <div class="logo"><h1>Kartvizit Studio</h1></div>
+            <nav class="main-nav" aria-label="Ana menü">
                 <ul>
                     <li><a href="index.html" class="btn">Ana Sayfa</a></li>
-                    <li><a href="#" class="btn primary-btn">Editör</a></li>
+                    <li><a href="editor.html" class="btn primary-btn" aria-current="page">Editör</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="editor-main">
-        <section class="editor-panel">
-            <h2>Ayarlar</h2>
+    <main class="editor-main" id="icerik">
+        <section class="editor-panel" aria-labelledby="ayarlar-baslik">
+            <h2 id="ayarlar-baslik">Ayarlar</h2>
 
-            <div class="panel-group">
-                <h3>Ön Yüz</h3>
-                <label>
-                    İsim Soyisim
-                    <input type="text" id="inp-name" placeholder="Adınız Soyadınız" />
-                </label>
+            <fieldset class="panel-group">
+                <legend>Tema</legend>
+                <div class="themes" id="themes"></div>
+            </fieldset>
 
-                <label>
-                    Unvan
-                    <input type="text" id="inp-title" placeholder="Unvanınız" />
+            <fieldset class="panel-group">
+                <legend>Ön Yüz</legend>
+                <label for="inp-name">İsim Soyisim
+                    <input type="text" id="inp-name" autocomplete="name" value="Ayşe Yılmaz" />
                 </label>
+                <label for="inp-title">Unvan
+                    <input type="text" id="inp-title" autocomplete="organization-title" value="Ürün Tasarımcısı" />
+                </label>
+                <label for="inp-phone">Telefon
+                    <input type="tel" id="inp-phone" autocomplete="tel" value="0532 000 00 00" />
+                </label>
+                <label for="inp-email">E-Posta
+                    <input type="email" id="inp-email" autocomplete="email" value="ayse@ornek.com" />
+                </label>
+                <label for="inp-company">Şirket Adı
+                    <input type="text" id="inp-company" autocomplete="organization" value="Örnek Stüdyo" />
+                </label>
+            </fieldset>
 
-                <label>
-                    Telefon
-                    <input type="text" id="inp-phone" placeholder="0 5XX XXX XX XX" />
+            <fieldset class="panel-group">
+                <legend>Arka Yüz</legend>
+                <label for="inp-slogan">Slogan
+                    <input type="text" id="inp-slogan" value="Fikirden ürüne" />
                 </label>
+                <label for="inp-website">Web Sitesi
+                    <input type="text" id="inp-website" autocomplete="url" value="www.ornek.com" />
+                </label>
+                <label for="inp-address">Adres
+                    <textarea id="inp-address" rows="2" autocomplete="street-address">İstanbul, Türkiye</textarea>
+                </label>
+            </fieldset>
 
-                <label>
-                    E-Posta
-                    <input type="email" id="inp-email" placeholder="adiniz@sirketiniz.com" />
-                </label>
+            <fieldset class="panel-group">
+                <legend>Özel Renkler</legend>
+                <div class="color-row">
+                    <label for="inp-front-color">Ön yüz rengi
+                        <input type="color" id="inp-front-color" value="#0b5ed7"/>
+                    </label>
+                    <label for="inp-back-color">Arka yüz rengi
+                        <input type="color" id="inp-back-color" value="#111827" />
+                    </label>
+                </div>
+            </fieldset>
 
-                <label>
-                    Şirket Adı
-                    <input type="text" id="inp-company" placeholder="Şirket Adı" />
-                </label>
-            </div>
-
-            <div class="panel-group">
-                <h3>Arka Yüz</h3>
-                <label>
-                    Slogan
-                    <input type="text" id="inp-slogan" placeholder="Sloganınız buraya gelecek"/>
-                </label>
-
-                <label>
-                    Web Sitesi
-                    <input type="text" id="inp-website" placeholder="www.sirketiniz.com"/>
-                </label>
-
-                <label>
-                    Adres
-                    <textarea id="inp-address" rows="2" placeholder="Adresiniz, Şehir, Ülke"></textarea>
-                </label>
-            </div>
-
-            <div class="panel-group">
-                <h3>Renkler</h3>
-                
-                <label>
-                    Ön Yüz Renk
-                    <input type="color" id="inp-front-color" value="#007bff"/>
-                </label>
-
-                <label>
-                    Arka Yüz Renk
-                    <input type="color" id="inp-back-color" value="#111827" />
-                </label>
-            </div>
+            <button type="button" class="btn reset-btn" id="btn-reset">Varsayılana dön</button>
         </section>
 
-        <section class="editor-preview">
-            <h2>Canlı Önizleme</h2>
+        <section class="editor-preview" aria-labelledby="onizleme-baslik">
+            <h2 id="onizleme-baslik">Canlı Önizleme</h2>
 
             <div class="card-wrapper">
                 <div class="card-3d" id="editor-card">
                     <div class="card-face card-front">
                         <div class="card-content">
-                            <p class="card-name" id="prev-name">Adınız Soyadınız</p>
-                            <p class="card-title" id="prev-title">Unvanınız</p>
-                            <p class="card-contact" id="prev-phone">Telefon:05XX XXX XX XX</p>
-                            <p class="card-contact" id="prev-email">E-Posta: adiniz@sirketiniz.com</p>
-                            <p class="card-company" id="prev-company">Şirket Adı</p>
+                            <p class="card-name" id="prev-name"></p>
+                            <p class="card-title" id="prev-title"></p>
+                            <p class="card-contact" id="prev-phone"></p>
+                            <p class="card-contact" id="prev-email"></p>
+                            <p class="card-company" id="prev-company"></p>
                         </div>
                     </div>
-
                     <div class="card-face card-back">
                         <div class="card-content">
-                            <p class="card-slogan" id="prev-slogan">Sloganınız buraya gelecek</p>
-                            <p class="card-website" id="prev-website">www.sirketiniz.com</p>
-                            <p class="card-address" id="prev-address">Adresiniz, Şehir, Ülke</p>
+                            <p class="card-slogan" id="prev-slogan"></p>
+                            <p class="card-website" id="prev-website"></p>
+                            <p class="card-address" id="prev-address"></p>
                         </div>
+                        <div class="card-qr" id="prev-qr" role="img" aria-label="Kişi bilgilerini içeren vCard QR kodu"></div>
                     </div>
                 </div>
             </div>
 
-            <button class="btn flip-btn" id="btn-flip">Ön/Arka Çevir</button>
+            <div class="actions">
+                <button type="button" class="btn" id="btn-flip" aria-pressed="false">Ön/Arka Çevir</button>
+                <button type="button" class="btn primary-btn" id="btn-png-front">Ön yüzü PNG indir</button>
+                <button type="button" class="btn primary-btn" id="btn-png-back">Arka yüzü PNG indir</button>
+            </div>
+            <p class="hint" id="status" role="status" aria-live="polite">QR kod kartın arka yüzündedir ve telefon rehberine kişi ekler.</p>
         </section>
     </main>
 
+    <div id="export-stage" aria-hidden="true">
+        <div class="card-3d" id="export-card">
+            <div class="card-face card-front">
+                        <div class="card-content">
+                            <p class="card-name" id="exp-name"></p>
+                            <p class="card-title" id="exp-title"></p>
+                            <p class="card-contact" id="exp-phone"></p>
+                            <p class="card-contact" id="exp-email"></p>
+                            <p class="card-company" id="exp-company"></p>
+                        </div>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="card-content">
+                            <p class="card-slogan" id="exp-slogan"></p>
+                            <p class="card-website" id="exp-website"></p>
+                            <p class="card-address" id="exp-address"></p>
+                        </div>
+                        <div class="card-qr" id="exp-qr" role="img" aria-label="Kişi bilgilerini içeren vCard QR kodu"></div>
+                    </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha384-ZZ1pncU3bQe8y31yfZdMFdSpttDoPmOZg2wguVK9almUodir1PghgT0eY7Mrty8H" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" integrity="sha384-mZT2gIty7ZDdOGkxfP6joZcYdMW1Jvj9dRlfpTmaJAKKXTqzygtB22k7FLe+KZC1" crossorigin="anonymous"></script>
     <script src="js/editor.js"></script>
 </body>
 </html>
