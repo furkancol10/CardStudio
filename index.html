@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Kartvizit Studio: tarayıcıda kartvizit tasarla, vCard QR kodu ekle, PNG olarak indir." />
     <title>Kartvizit Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -12,6 +15,7 @@
     <header class="main-header">
         <div class="container">
             <div class="logo">
+                <span class="logo-mark" aria-hidden="true"></span>
                 <h1>Kartvizit Studio</h1>
             </div>
             <nav class="main-nav">
@@ -24,11 +28,12 @@
 
     <main id="icerik">
         <section class="hero">
+            <span class="eyebrow">Ücretsiz ve tarayıcıda çalışır</span>
             <h2>Kartvizitini dakikalar içinde tasarla</h2>
             <p>Bilgilerini gir, hazır temalardan birini seç, vCard QR kodlu kartını PNG olarak indir.</p>
-            <a href="editor.html" class="btn primary-btn">Tasarlamaya başla</a>
+            <a href="editor.html" class="btn primary-btn lg">Tasarlamaya başla</a>
         </section>
-        <section aria-label="Kartvizit önizleme">
+        <section class="demo" aria-label="Kartvizit önizleme">
             <div class="card-wrapper">
                 <div class="card-3d" id="businessCard" tabindex="0" role="button" aria-label="Kartı çevir">
                     <div class="card-face card-front">
@@ -50,11 +55,18 @@
                 </div>
             </div>
             <p class="hint">Kartı çevirmek için tıkla.</p>
+            </section>
+        <section aria-label="Özellikler">
             <ul class="features">
-                <li>Canlı önizleme</li><li>Hazır temalar</li><li>vCard QR kodu</li><li>PNG indirme</li><li>Mobil uyumlu</li>
+                <li><span class="ico" aria-hidden="true">&#9998;</span><h3>Canlı önizleme</h3><p>Yazdıkça kartın anında güncellenir; ön ve arka yüzü çevirerek kontrol et.</p></li>
+                <li><span class="ico" aria-hidden="true">&#127912;</span><h3>Hazır temalar</h3><p>Beş hazır tema ve kendi renklerin. Metin rengi otomatik okunur kalır.</p></li>
+                <li><span class="ico" aria-hidden="true">&#8681;</span><h3>vCard QR ve PNG</h3><p>QR kod telefon rehberine kişi ekler. Her iki yüzü PNG olarak indir.</p></li>
             </ul>
         </section>
     </main>
+    <footer class="site-footer">
+        <p>Kartvizit Studio &middot; Verilerin yalnızca tarayıcında saklanır. <a href="editor.html">Tasarlamaya başla</a></p>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>

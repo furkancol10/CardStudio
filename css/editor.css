@@ -1,31 +1,47 @@
-.editor-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 32px; max-width: 1200px; margin: 28px auto 64px; padding: 0 16px; }
+.editor-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 32px; max-width: 1200px; margin: 32px auto 64px; padding: 0 16px; align-items: start; }
 
-.editor-panel { background: var(--surface); border-radius: 12px; padding: 20px 24px; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
-.editor-panel h2, .editor-preview h2 { font-size: 1.4rem; margin-bottom: 12px; }
-.panel-group { margin-top: 16px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,.12); border-left: 0; border-right: 0; border-bottom: 0; min-width: 0; }
-.panel-group legend, .panel-group h3 { font-size: 1.05rem; font-weight: 700; padding-right: 8px; }
-.panel-group label { display: block; font-size: .9rem; margin-top: 10px; }
+.editor-panel { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.editor-panel > h2, .editor-preview > h2 { font-size: 1.5rem; letter-spacing: -.02em; }
+
+.panel-group { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-sm); min-width: 0; }
+.panel-group legend { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: 0 8px; margin-left: -8px; }
+.panel-group label { display: block; font-size: .9rem; font-weight: 600; margin-top: 16px; }
+.panel-group legend + label, .panel-group legend + .themes, .panel-group legend + .color-row { margin-top: 8px; }
 .panel-group input[type="text"], .panel-group input[type="email"], .panel-group input[type="tel"], .panel-group textarea {
-    width: 100%; margin-top: 4px; padding: 8px; border-radius: 6px; border: 1px solid #6b7280; font-family: inherit; font-size: 1rem;
+    display: block; width: 100%; margin-top: 8px; padding: 10px 12px; min-height: 44px; border-radius: var(--radius-sm);
+    border: 1px solid var(--border-strong); background: var(--bg); color: var(--text); font-family: inherit; font-size: 1rem; font-weight: 400;
+    transition: border-color .2s ease, box-shadow .2s ease;
 }
-.panel-group input:focus, .panel-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(11,94,215,.25); }
-.color-row { display: flex; gap: 16px; flex-wrap: wrap; }
-.panel-group input[type="color"] { display: block; margin-top: 6px; width: 64px; height: 36px; padding: 0; border: 1px solid #6b7280; border-radius: 4px; background: transparent; cursor: pointer; }
+.panel-group textarea { resize: vertical; }
+.panel-group input:hover, .panel-group textarea:hover { border-color: var(--primary); }
+.panel-group input:focus, .panel-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--ring); outline: none; }
+.panel-group input:focus-visible, .panel-group textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.color-row { display: flex; gap: 24px; flex-wrap: wrap; }
+.color-row label { margin-top: 8px; }
+.panel-group input[type="color"] { display: block; margin-top: 8px; width: 72px; height: 44px; padding: 3px; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--bg); cursor: pointer; }
 
-.themes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-.theme-btn { display: flex; align-items: center; gap: 8px; font: inherit; font-size: .9rem; cursor: pointer; background: #fff; color: var(--text); border: 2px solid var(--border); border-radius: 8px; padding: 6px 10px; }
-.theme-btn .sw { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(0,0,0,.25); }
-.theme-btn[aria-pressed="true"] { border-color: var(--primary); background: #e8f0fe; font-weight: 700; }
+/* Tema seçici: renkli kutucuklar */
+.themes { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 12px; }
+.theme-btn { display: flex; flex-direction: column; align-items: stretch; gap: 8px; font: inherit; font-size: .8rem; font-weight: 600; text-align: center; cursor: pointer; background: var(--surface); color: var(--text); border: 2px solid var(--border); border-radius: 12px; padding: 8px; transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.theme-btn:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.theme-btn .sw { display: block; height: 44px; border-radius: 8px; border: 1px solid rgba(15, 23, 42, .18); }
+.theme-btn[aria-pressed="true"] { border-color: var(--primary); box-shadow: 0 0 0 3px var(--ring); }
+.theme-btn[aria-pressed="true"]::after { content: "Seçili"; font-size: .7rem; color: var(--primary); font-weight: 700; margin-top: -4px; }
 
-.editor-preview { min-width: 0; }
-.editor-preview .card-wrapper { margin: 12px 0 16px; }
-.actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-.reset-btn { margin-top: 16px; }
+.editor-preview { min-width: 0; position: sticky; top: 80px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-md); }
+.editor-preview .card-wrapper { margin: 24px 0; padding: 16px 0; background: var(--surface-2); border-radius: var(--radius-sm); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.reset-btn { align-self: flex-start; }
+#status { min-height: 1.6em; }
 
 /* PNG dışa aktarma için ekran dışı düz kopya */
 #export-stage { position: fixed; left: -10000px; top: 0; pointer-events: none; }
 #export-stage .card-3d { transform: none; transition: none; font-size: 16px; }
 #export-stage .card-face { position: relative; width: 31.25em; height: 18.75em; box-shadow: none; backface-visibility: visible; transform: none; border-radius: 0; }
 
-@media (max-width: 900px) { .editor-main { grid-template-columns: minmax(0, 1fr); } .editor-preview { order: -1; } }
-@media (max-width: 480px) { .editor-panel { padding: 16px; } .actions .btn { flex: 1 1 100%; text-align: center; } }
+@media (max-width: 900px) {
+    .editor-main { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 16px; }
+    .editor-preview { order: -1; position: static; padding: 16px; }
+    .editor-preview .card-wrapper { margin: 12px 0; }
+}
+@media (max-width: 480px) { .main-header .btn { padding: 8px 10px; white-space: nowrap; font-size: .85rem; } .main-header .logo h1 { white-space: nowrap; } .panel-group { padding: 16px; } .actions .btn { flex: 1 1 100%; } .main-header .logo h1 { font-size: 1rem; } }
