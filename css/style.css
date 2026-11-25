@@ -29,6 +29,9 @@
         --primary: #8b95f7;
         --primary-hover: #a5adfa;
         --on-primary: #0b0f1a;
+        --btn-bg: #4f46e5;
+        --btn-bg-hover: #6366f1;
+        --btn-text: #ffffff;
         --border: #263049;
         --border-strong: #7683a3;
         --focus: #a5adfa;
@@ -73,8 +76,10 @@ body {
 }
 .btn:hover { background: var(--surface-2); transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
-.btn.primary-btn { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
-.btn.primary-btn:hover { background: var(--primary-hover); border-color: var(--primary-hover); box-shadow: var(--shadow-md); }
+.btn.primary-btn { background: var(--btn-bg, var(--primary)); border-color: var(--btn-bg, var(--primary)); color: var(--btn-text, var(--on-primary)); }
+.btn.primary-btn:hover { background: var(--btn-bg-hover, var(--primary-hover)); border-color: var(--btn-bg-hover, var(--primary-hover)); box-shadow: var(--shadow-md); }
+.nav-link { color: var(--text); font-weight: 600; text-decoration: none; padding: 10px 8px; min-height: 44px; display: inline-flex; align-items: center; border-radius: 8px; }
+.nav-link:hover { color: var(--primary); text-decoration: underline; }
 .btn.lg { padding: 14px 28px; font-size: 1.05rem; border-radius: 12px; }
 
 /* Ana sayfa */
