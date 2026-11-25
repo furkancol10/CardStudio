@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const placeholders = { name: 'Adınız Soyadınız', title: 'Unvanınız', phone: '0 5XX XXX XX XX', email: 'adiniz@sirketiniz.com', company: 'Şirket Adı', slogan: 'Sloganınız buraya gelecek', website: 'www.sirketiniz.com', address: 'Adresiniz, Şehir, Ülke' };
 
     // vCard 3.0
-    const esc = (v) => String(v).replace(/\\/g, '\\\\').replace(/\r?\n/g, '\\n').replace(/;/g, '\;').replace(/,/g, '\\,');
+    const esc = (v) => String(v).replace(/\\/g, '\\\\').replace(/\r?\n/g, '\\n').replace(/;/g, '\\;').replace(/,/g, '\\,');
     const buildVCard = () => {
         const v = (f) => (state[f] || '').trim();
         const name = v('name') || placeholders.name;
