@@ -2,7 +2,9 @@
 
 Tarayıcıda çalışan, kurulum gerektirmeyen kartvizit tasarım aracı. Bilgilerini gir, hazır temalardan birini seç, kişi bilgilerini içeren QR kodlu kartvizitini PNG olarak indir.
 
-<!-- TODO: ekran görüntüsü ekle (ör. docs/ekran.png) -->
+**Canlı demo:** [cardstudio-gamma.vercel.app](https://cardstudio-gamma.vercel.app/)
+
+![Kartvizit Studio editörü](docs/ekran.png)
 
 ## Özellikler
 
